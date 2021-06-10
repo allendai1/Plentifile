@@ -1,0 +1,277 @@
+
+
+
+
+
+
+
+.sidenav {
+    font-family: quicksand-medium;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #1F1F23;
+    overflow-x: hidden;
+    // // transition: 5s;
+    // transition-timing-function: cubic-bezier(0, 1, 0.15, 1);
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    a{
+        color: white;
+        
+    }
+    .h-flex{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        justify-content: space-around;
+        hr.navbar-divider{
+            border-top: 1px solid white;
+            width: 80%;
+        }
+        #logout{
+            color: red;
+            cursor: pointer;
+        }
+        svg{
+            transition: 0.7s;
+            transition-timing-function: cubic-bezier(0, 1, 0.15, 1);
+
+
+            &:hover{
+                cursor: pointer;
+                transform: scale(1.3,1.3);
+                
+                
+            }
+        }
+        a{
+            transition: 0.1s;
+            transition-timing-function: ease;
+            color: white;
+
+            &:hover{
+                text-decoration: none;
+                transform: scale(1.4,1.4);
+            }
+            min-height: 2.5rem;
+        }
+        #close{
+            transition: 0.05s;
+            &:hover{
+                transform: scale(1.2)
+                
+            }
+            font-size: 1.7rem;
+            cursor: pointer;
+            color: white;
+            background-color: #5979FA;
+            width: 60%;
+            border-radius: 7px;
+            
+        }
+        
+        
+    }
+    #open-nav{
+        background-color: red;
+    }
+    #close-nav{
+        background-color: green;
+    }
+    &.closeNav .h-flex{
+        a{
+            display: none;
+            
+        }
+        div{
+            display: none;
+            
+        }
+        
+        
+
+    }
+    &.openNav .h-flex{
+        .svg-home{
+            display: none;
+        }
+        .svg-files{
+            display: none;
+        }
+        .svg-settings{
+            display: none;
+        }
+        .svg-about{
+            display: none;
+        }
+        .svg-toggle{
+            display: none;
+            position: absolute;
+        }
+        .svg-logout{
+            display: none;
+        }
+        
+        
+
+    }
+    
+    
+    
+    
+  }
+
+
+  .openNav{
+    width : 240px;
+    font-size: 2.6rem;
+    
+    
+  }
+  .closeNav{
+    width : 50px;
+    
+    
+  }
+  .openMargin{
+      margin-left: 240px !important;
+  }
+  .closeMargin{
+    margin-left : 50px !important;
+}
+
+
+
+.svg-home {
+    
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    max-width: 2.5rem;
+    max-height: 2.5rem;
+  }
+  
+  .svg-home path,
+  .svg-home polygon,
+  .svg-home rect {
+    fill: white;
+  }
+  
+  .svg-home circle {
+    stroke: white;
+    stroke-width: 1;
+  }
+
+
+  
+.svg-files {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    max-width: 2.5rem;
+    max-height: 2.5rem;
+  }
+  
+  .svg-files path,
+  .svg-files polygon,
+  .svg-files rect {
+    fill: white;
+  }
+  
+  .svg-files circle {
+    stroke: white;
+    stroke-width: 1;
+  }
+
+  .svg-settings {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    max-width: 2.5rem;
+    max-height: 2.5rem;
+  }
+  
+  .svg-settings path,
+  .svg-settings polygon,
+  .svg-settings rect {
+    fill: white;
+  }
+  
+  .svg-settings circle {
+    stroke: white;
+    stroke-width: 1;
+  }
+
+
+  .svg-about {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    max-width: 2.5rem;
+    max-height: 2.5rem;
+  }
+  
+  .svg-about path,
+  .svg-about polygon,
+  .svg-about rect {
+    fill: white;
+  }
+  
+  .svg-about circle {
+    stroke: white;
+    stroke-width: 1;
+  }
+  .svg-toggle {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    max-width: 2.5rem;
+    max-height: 2.5rem;
+  }
+  
+  .svg-toggle path,
+  .svg-toggle polygon,
+  .svg-toggle rect {
+    fill: white;
+  }
+  
+  .svg-toggle circle {
+    stroke: white;
+    stroke-width: 1;
+  }
+
+  .svg-logout {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    max-width: 2.5rem;
+    max-height: 2.5rem;
+  }
+  
+  .svg-logout path,
+  .svg-logout polygon,
+  .svg-logout rect {
+    fill: white;
+  }
+  
+  .svg-logout circle {
+    stroke: white;
+    stroke-width: 1;
+  }
+
+  @media (max-width:576px) {
+    .sidenav{
+      display: none;
+    }
+  }
+
+  .logo{
+    display: flex;
+        width: 100%;
+        justify-content: space-around;
+  }

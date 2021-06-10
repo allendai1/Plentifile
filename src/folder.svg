@@ -1,0 +1,5 @@
+<svg class="svg"xmlns="http://www.w3.org/2000/svg" width="85%" height="40%" viewBox="50 80 120 120">
+        <rect width="105.8" height="79.4" x="53.7" y="89.2" style={{fill:"#f6e0a3",strokeWidth:"0.3",stroke:"#f6e0a3"}}/>
+        <rect width="32.9" height="6" x="53.7" y="83.2" style={{fill:"#f6de8a",strokeWidth:"0.3",stroke:"#f6de8a",mixBlendMode:"normal"}}/>
+        <path d="m86.5 83.1v6.1l3.4 0-3.4-6.1" style={{fill:"#f6de8a",strokeWidth:"0.3px",stroke:"#f6de8a"}}/>
+        </svg>

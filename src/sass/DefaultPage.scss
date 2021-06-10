@@ -1,0 +1,51 @@
+
+
+.table-container {
+    position: relative;
+    width: 40%;
+    min-width: 450px;
+    // background-color: red;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10%;
+
+}
+.table-row {
+    background-color: green;
+    margin: 10px 0px 10px 0px;
+    display: grid;
+    grid-template-columns: 20% 70% auto;
+    
+}
+.table-row-column{
+    background-color: rgb(0, 217, 255);
+    
+    img{
+        object-fit: cover;
+        width: 10vw;
+        height: auto;
+        border-radius: 10%;
+    }
+
+}
+.file-row-section{
+    display: grid;
+    grid-template-columns:0fr 1fr 0fr 0fr; // icon-name-file_size-download_icon
+    grid-template-rows: auto;
+    padding: 20px 20px;
+    font-size: 1.3rem;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid black;
+    svg:hover{
+        cursor: pointer;
+
+    }
+}
+.password_form{
+    width: 20%;
+    left: 40%;
+    position: relative;    
+    margin-top: 40vh;
+    justify-content: center;
+}

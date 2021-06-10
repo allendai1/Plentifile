@@ -1,0 +1,71 @@
+@import "configs","files","home","colors","navbar","upload","homepage","icons";
+
+* {
+    font-family: quicksand-regular;
+}
+.App {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+  }
+  
+
+  .App-header {
+    background-color: #167ACA;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  .loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
+.login,.signup {
+    &:hover{
+        color: red;
+    }
+    
+    background-color: white;
+    color:black;
+    font-size: 1rem;
+    border-style: none;
+    margin: 0px 50px 0px 50px;
+    
+}
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+  
+@import "~bootstrap/scss/bootstrap";
+@import "./DefaultPage.scss";
