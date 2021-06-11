@@ -3,45 +3,59 @@
     height: 100vh;
     padding: 15px 5%;
     font-family: Arial;
+    display: grid;
+    grid-template-columns: 2fr 0.5fr;
+    grid-template-rows: 0fr 0fr;
+    gap: 40px;
     h1{
-        // color: white;
+        font-family: Roboto-mono;
         font-size: 3rem;
+        grid-column: 1 / 3;
     }
 }
 
 
 .nav-panel{
-    display: grid;
+    display: flex;
+    flex-direction: column;
     grid-template-columns: 1fr 1fr 2fr 1fr;
-    gap: 15px;
+    gap: 3.4rem;
     text-align: center;
-    height: 25%;
-    margin: 20px 0 40px 0;
+    grid-row: 2/4;
+    grid-column: 2/3;
+    // width: 70%;
 }
 .nav-panel-item-header{
     text-align: center;
-    font-size: 1.1rem;
-    font-family: quicksand-medium;
-    border-radius: 12px 12px 0 0;
+    font-size: 1.4rem;
+    font-family: Rubik;
+    border-radius: 5px 5px 0 0;
+    // background-color: #7692FF;1F1F23
     background-color: #7692FF;
     color: white;
 }
 .nav-panel-item{
     background-color: white;
-    border-radius: 12px;
+    border-radius: 5px;
     display: grid;
     grid-template-rows: auto 2fr;
-    color: white;
+    // margin-bottom: 40px;
     align-items: center;
-    color: black;
+    color: #1F1F23;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    font-family: Roboto-mono;
     // background-color: white;
-    font-size: 4rem;
+    font-size: 3rem;
+    span{
+        white-space: initial;
+        text-align: center;
+        font-family: Roboto-mono;
+    }
 }
 .nav-panel-big-card{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    max-height:55vh;
+    max-height:80vh;
+    grid-row: 2/4;
+    grid-column: 1/2;
     
 }
 .nav-panel-upload-card{
@@ -51,15 +65,16 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 12px;
     position: relative;
-    max-height:  inherit;
+    height: 100%;
     .load-container{
-        height: 400px;
+        height: 100%;
+        grid-column: 1/ 3;
         display: flex;
         justify-content: center;
         align-items: center;
     }
     .nav-panel-item-header{
-        font-size: 1.1rem;
+        font-size: 1.4rem;
         padding-left: 1rem;
     }
 }

@@ -1,6 +1,6 @@
 import React, { useState,useEffect,useRef } from "react"
 import QRCode from "qrcode.react";
-import {Modal,Button,Form} from 'react-bootstrap'
+import {Modal,Button,Form,Overlay,Tooltip,Alert} from 'react-bootstrap'
 import {database,storage,firestore} from '../firebase'
 import { useAuth } from "../contexts/AuthContext"
 import sha256 from 'crypto-js/sha256'
@@ -8,7 +8,8 @@ import sha256 from 'crypto-js/sha256'
 function FilesRow(props){
   
   const p = useRef()
-  
+  const [copied,setCopied] = useState(false);
+
   const [pressed,setPressed] = useState(0)
   const [more,setMore] = useState(0)
   const [numFiles,setNumFiles] = useState(props.doc.data().numFiles)
@@ -74,7 +75,17 @@ function FilesRow(props){
     }
   }
 
+  function bytesToSize(bytes, decimals = 2) {
+    if (bytes === 0) return '0 Bytes';
 
+    const k = 1024;
+    const dm = decimals < 0 ? 0 : decimals;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+    return String(parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]);
+}
 
 
   function togglePressed(doc){
@@ -97,6 +108,10 @@ function FilesRow(props){
   }
   function copyToClipboard(e){
     e.preventDefault();
+    setCopied(true)
+    setTimeout(()=>{
+      setCopied(false)
+    },5000)
     copyStringToClipboard(`${window.location.hostname}:3000/${props.doc.id}`)
 
   }
@@ -125,7 +140,7 @@ function FilesRow(props){
     return(
       <div>
         <>
-      
+        
 
       <Modal show={show}
         onHide={handleClose}
@@ -178,7 +193,7 @@ function FilesRow(props){
               <div className="header-date">
                 {props.doc.data().date}
               </div>
-              <div className='header-size'>{props.doc.data().size/100000}MB</div>
+              <div className='header-size'>{bytesToSize(props.doc.data().size)}</div>
 
               </div>
               
@@ -208,10 +223,12 @@ function FilesRow(props){
                 )}
               </div>
               <div>
-              <h2>Copy</h2>
+              <h2>{copied ? "Copied!" :  "Copy"}</h2>
+              
                 <svg className="svg-copy" viewBox="0 0 20 20" onClick={copyToClipboard}>
                 <path d="M17.391,2.406H7.266c-0.232,0-0.422,0.19-0.422,0.422v3.797H3.047c-0.232,0-0.422,0.19-0.422,0.422v10.125c0,0.232,0.19,0.422,0.422,0.422h10.125c0.231,0,0.422-0.189,0.422-0.422v-3.797h3.797c0.232,0,0.422-0.19,0.422-0.422V2.828C17.812,2.596,17.623,2.406,17.391,2.406 M12.749,16.75h-9.28V7.469h3.375v5.484c0,0.231,0.19,0.422,0.422,0.422h5.483V16.75zM16.969,12.531H7.688V3.25h9.281V12.531z"></path>
-                </svg>
+              </svg>
+              
               </div>
               <div className="more-div-right">
               <QRCode size={64} value={`${window.location.hostname}/${props.doc.id}`}/>

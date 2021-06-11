@@ -53,7 +53,17 @@ export default function Home(){
         
         
         
-        
+    function bytesToSize(bytes, decimals = 2) {
+        if (bytes === 0) return '0 Bytes';
+    
+        const k = 1024;
+        const dm = decimals < 0 ? 0 : decimals;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+    
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+    
+        return String(parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]);
+    }
         
 
         return(
@@ -68,26 +78,25 @@ export default function Home(){
                         </div>
                     <div className="nav-panel-item">
                         <div className="nav-panel-item-header">Storage</div>
-                            <span>{(fileSize/1000000).toPrecision(3)}MB</span>
+                            <span>{bytesToSize(fileSize)}</span>
                         </div>
-                    <div className="nav-panel-item">
-                        <div className="nav-panel-item-header">Last uploaded</div>
-                            <span>{lastUploaded}</span>
-                        </div>
+                    
                     <div className="nav-panel-item">
                         <div className="nav-panel-item-header">Views</div>
                             <span>{totalViews}</span>
                         </div>
+                        <div className="nav-panel-item">
+                        <div className="nav-panel-item-header">Last uploaded</div>
+                            <span>{lastUploaded}</span>
+                </div>
                 </div>
                 <div className="nav-panel-big-card">
                     <div className="nav-panel-upload-card" id="upload-card">
                         <div className="nav-panel-item-header">Upload</div>
                         <Upload/>
                     </div>
-                    {/* <div className="nav-panel-item" id="recently-viewed-card">
-                        <div  className="nav-panel-item-header">Recently viewed</div>
-                    </div> */}
                 </div>
+                
                 
             </div>
 

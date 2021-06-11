@@ -18,7 +18,7 @@ export default function MyFiles() {
   const [dateSort,setDateSort] = useState("descending");
   const [nameSort,setNameSort] = useState("ascending");
   const [sizeSort,setSizeSort] = useState("ascending");
-
+  const [confirm,setConfirm] = useState(false)
   useEffect(()=>{
     if(loading===true)loadFile()
     
@@ -142,13 +142,27 @@ export default function MyFiles() {
     <>
     
     <NavigationBar/>
+
+    
     <div className="files-page">
     {/* <button onClick={test}>TEST</button> */}
       <h1>Files</h1>
       <div className='files-container'>
         <div delete={selected.length>0 ? "1" : "0"}className="files-container-header">My files</div>
         {selected.length>0 && (
-          <div className="delete-header" onClick={deleteFile}>Delete</div>
+          <>
+          {!confirm && (
+            <div className="delete-header" onClick={()=>{setConfirm(true)}}>Delete</div>
+          )}
+          {confirm && (
+            <div className="d-flex justify-content-center">
+              <div className="cancel-delete-header" onClick={()=>setConfirm(false)}>Cancel</div>
+
+              <div className="confirm-delete-header" onClick={deleteFile}>Confirm delete</div>
+
+            </div>
+          )}
+          </>
         )}
         <div className="files-inner-header">
           <div className="header-select"><div className="checkbox" onClick={selectAll}></div></div>
@@ -171,10 +185,13 @@ export default function MyFiles() {
            
            </div>
         </div>
+        <div style={{minHeight:"80vh"}}>
         {dataFetched && [...arr].map((doc,index)=>{
         return (
           <FilesRow doc={doc} select={setSelected} update={setUpdate} selectAllBool={selectAllBool} key={doc.id}/>
         )})}
+        </div>
+        
         
         
         

@@ -1,5 +1,5 @@
 .bgimage{
-    background-color: #7692FF;
+    background-color: #413F42;
     
     
     
@@ -99,12 +99,14 @@
         color: white;
         font-size: clamp(2rem, calc(0rem + 4vw), 5rem);
         // font-size:5rem;
-        font-family: quicksand-medium;
+        font-family: rubik;
+
     }
     p{
         color: white;
         font-size: clamp(1rem, calc(0.236rem + 1.05vw),1.5rem);
         max-width: 26ch;
+        font-family: Roboto-mono;
         span{
             text-decoration: underline dotted;
             &:hover{
@@ -229,12 +231,13 @@ background-size: cover;
         text-align: left;
         margin-top: 1rem;
         line-height: 2rem;
+        font-family: Roboto-mono;
         
     }
     
     h1{
         text-align: left;
-        font-family: quicksand-medium;
+        font-family: rubik-medium;
         font-size: clamp(2rem, calc(0rem + 4vw), 5rem);
         // font-size: 5.5rem;
         margin-bottom: 0.3rem;
@@ -247,7 +250,7 @@ background-size: cover;
         background-color: white;
         color: #2f56d6;
         font-size: clamp(1rem, calc(0.236rem + 1.05vw),1.5rem);
-        font-family: quicksand-medium;
+        font-family: Roboto-mono;
     }
     
 }

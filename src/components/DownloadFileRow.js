@@ -16,6 +16,17 @@ export default function DownloadFileRow(props){
         
 
     }
+    function bytesToSize(bytes, decimals = 2) {
+        if (bytes === 0) return '0 Bytes';
+    
+        const k = 1024;
+        const dm = decimals < 0 ? 0 : decimals;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+    
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+    
+        return String(parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]);
+    }
 
     return(
         <div className="file-row-section">
@@ -23,7 +34,7 @@ export default function DownloadFileRow(props){
         {/* <button onClick={test}>Butt</button> */}
         <div className={`fiv-viv fiv-icon-${props.e.metadata.name.split('.')[1]}`}></div>
         <div className="">{props.e.metadata.name}</div>
-            <div className="">{props.e.metadata.size} bytes</div>
+            <div className="">{ bytesToSize(props.e.metadata.size)}</div>
             
 
 

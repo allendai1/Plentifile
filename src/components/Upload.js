@@ -52,7 +52,7 @@ export default function Upload(){
         const [name,desc,pass] = [linkNameRef.current.value,descriptionRef.current.value,passwordRef.current.value]
         setUploadedState(4)
         const t = await validToken();
-        console.log(name,desc,pass)
+        // console.log(name,desc,pass)
         
         
         await Promise.all(Array.from(fileList).map(async(x) => {
@@ -233,7 +233,7 @@ export default function Upload(){
                         
                         <div className="inner-card-container share">
                                 {submitted && (
-                                        <div>
+                                        <div className="h-100">
                                         <a href={`/${token}`}>
                                                 {`${window.location.host}/${token}`}
                                                 
@@ -252,26 +252,27 @@ export default function Upload(){
                 </div>
 
                 )}
+                {uploadedState===4 && (
+                       
+                                
+                        
+                       <div className="load-container">
+                       <div className="lds-facebook"><div></div><div></div><div></div></div>
+               
+                       </div>   
+               
+                                              
+                                              
+                                              
+                                      
+                                      
+               
+                              )}
         
         
 
         </div>
-        {uploadedState===4 && (
-                       
-                                
-                        
-        <div className="load-container">
-        <div className="lds-ring"><div></div><div></div><div></div></div>
-
-        </div>   
-
-                               
-                               
-                               
-                       
-                       
-
-               )}
+        
         </>
     )
 }

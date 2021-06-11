@@ -55,7 +55,7 @@
     color: white;
     font-size: 2.5rem;
     text-align: center;
-    border-radius: 0 0 12px 0;
+    border-radius: 0 0 5px 0;
     width: 100%;
     // border-radius: 0 0 15px 15px;
     &:hover{
@@ -169,12 +169,13 @@
     height: 100vh;
 }
 .outer-card{
-    max-height: 480px;
+    // max-height: 480px;
+height: 100%;
     background-color: white;
     border-radius: 12px;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 7fr 1fr;
+    grid-template-rows: 7fr 0fr;
     position: relative;
 }
 .grid-container{
@@ -250,10 +251,10 @@
 .files-list{
     position: relative;
     grid-row-start: 1;
-    grid-row-end: auto;
+    // grid-row-end: auto;
     overflow-y: auto;
     background-color: #eeeeee;
-    
+    max-height: 689px;
 }
 .form-check {
     color: black;
@@ -303,7 +304,7 @@ form[pressed='1'] {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff;
+    background-color: white;
 }
 #clear-button{
     outline: none;
@@ -311,7 +312,7 @@ form[pressed='1'] {
     font-size: 1.4rem;
     color: black;
     background-color: white;
-    border-radius: 0 0 0 12px;
+    border-radius: 0 0 0 5px;
 }
 .uploadButton{
     width: 50%;
@@ -319,6 +320,7 @@ form[pressed='1'] {
     text-align: center;
     display: flex;
     white-space: nowrap;
+    padding: 1rem 0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -439,20 +441,20 @@ form[pressed='1'] {
   .lds-ring {
     display: inline-block;
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 15vw;
+    height: 15vw;
   }
   .lds-ring div {
     box-sizing: border-box;
     display: block;
     position: absolute;
-    width: 64px;
-    height: 64px;
+    width: 15vw;
+    height: 15vw;
     margin: 8px;
-    border: 8px solid rgb(0, 0, 0);
+    border: 8px solid #7692FF;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: rgb(0, 0, 0) transparent transparent transparent;
+    border-color: #7692FF transparent transparent transparent;
   }
   .lds-ring div:nth-child(1) {
     animation-delay: -0.45s;
@@ -473,3 +475,41 @@ form[pressed='1'] {
   }
   
   
+
+
+  .lds-facebook {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-facebook div {
+    display: inline-block;
+    position: absolute;
+    left: 8px;
+    width: 16px;
+    background: #7692FF;
+    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  }
+  .lds-facebook div:nth-child(1) {
+    left: 8px;
+    animation-delay: -0.24s;
+  }
+  .lds-facebook div:nth-child(2) {
+    left: 32px;
+    animation-delay: -0.12s;
+  }
+  .lds-facebook div:nth-child(3) {
+    left: 56px;
+    animation-delay: 0;
+  }
+  @keyframes lds-facebook {
+    0% {
+      top: 8px;
+      height: 64px;
+    }
+    50%, 100% {
+      top: 24px;
+      height: 32px;
+    }
+  }
