@@ -26,19 +26,33 @@
         height: auto;
         border-radius: 10%;
     }
+    
 
+}
+.files-gap{
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
 }
 .file-row-section{
     display: grid;
-    grid-template-columns:0fr 1fr 0fr 0fr; // icon-name-file_size-download_icon
+                grid-template-columns:0fr 1fr 0fr 0fr; // icon-name-file_size-download_icon
     grid-template-rows: auto;
     padding: 20px 20px;
     font-size: 1.3rem;
     align-items: center;
     gap: 1rem;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    // box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;    
     svg:hover{
-        cursor: pointer;
+    cursor: pointer;
 
+    }
+    .file-row-size-label{
+        text-align: center;
+        font-size: 1rem;
     }
 }
 .password_form{

@@ -28,7 +28,7 @@ export default function Upload(){
 
         
         
-    
+        console.log("render")
 
     function resetFileList(){
             setInputKey(prev=>prev+1);
@@ -156,44 +156,44 @@ export default function Upload(){
         <div className="outer-card">
                 {uploadedState===1 && (
                         <>
-                                        <div  className="files-list">
-                                        <div>
-                                        {
-                                                Array.from(fileList).map((x,index)=>{
-                                                        return (
-                                                        <div key={index}>
-                                                                <svg onClick={()=>deleteFile(x)} xmlns='http://www.w3.org/2000/svg' height="94%" width="1.5rem" className='ionicon' viewBox='35 100 400 400'><path fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='32' d='M368 368L144 144M368 144L144 368'/></svg>
+                                <div  className="files-list">
+                                <div className="files-list-div">
+                                {
+                                        Array.from(fileList).map((x,index)=>{
+                                                return (
+                                                <div key={index}>
+                                                        <svg onClick={()=>deleteFile(x)} xmlns='http://www.w3.org/2000/svg'  width="1.5rem" className='ionicon' viewBox='35 100 400 400'><path fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='32' d='M368 368L144 144M368 144L144 368'/></svg>
 
-                                                                
-                                                        {x.name}
-                                                        </div>)
-                                                })
-                                        }
-                                        </div>
-                                        </div>
-                                        
-                                        
-                                        <form className='uploadForm'>
-                                                <input key={inputkey}type="file" name="file" id="file" className="inputfile" onChange={onFileChange} multiple/>
-                                        
-                                                <label className='uploadButton'htmlFor="file">
-                                                        Select Files
-                                                </label>
-                                                
-                                               
-                                                
-                                        </form>
-                                        
-                                        
-                                        
+                                                        
+                                                {x.name}
+                                                </div>)
+                                        })
+                                }
+                                </div>
+                                </div>
                                 
-                                <button id="clear-button" onClick={resetFileList}>Clear</button>
                                 
-                                <div className="next-button" onClick={()=>{
-                                        if(fileList.length>0) {
-                                                setUploadedState(2)
-                                        }
-                                }}>Next</div>
+                                <form className='uploadForm'>
+                                        <input key={inputkey}type="file" name="file" id="file" className="inputfile" onChange={onFileChange} multiple/>
+                                
+                                        <label className='uploadButton'htmlFor="file">
+                                                Select Files
+                                        </label>
+                                        
+                                        
+                                        
+                                </form>
+                                
+                                
+                                
+                        
+                        <button id="clear-button" onClick={resetFileList}>Clear</button>
+                        
+                        <div className="next-button" onClick={()=>{
+                                if(fileList.length>0) {
+                                        setUploadedState(2)
+                                }
+                        }}>Next</div>
                 
                         </>
 

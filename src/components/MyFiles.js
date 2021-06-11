@@ -148,7 +148,7 @@ export default function MyFiles() {
     {/* <button onClick={test}>TEST</button> */}
       <h1>Files</h1>
       <div className='files-container'>
-        <div delete={selected.length>0 ? "1" : "0"}className="files-container-header">My files</div>
+        {/* <div delete={selected.length>0 ? "1" : "0"}className="files-container-header">My files</div> */}
         {selected.length>0 && (
           <>
           {!confirm && (
