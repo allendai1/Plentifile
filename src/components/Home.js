@@ -92,7 +92,7 @@ export default function Home(){
                 </div>
                 <div className="nav-panel-big-card">
                     <div className="nav-panel-upload-card" id="upload-card">
-                        <div className="nav-panel-item-header">Upload</div>
+                        {/* <div className="nav-panel-item-header">Upload</div> */}
                         <Upload/>
                     </div>
                 </div>

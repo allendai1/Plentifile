@@ -18,18 +18,25 @@
     position: absolute;
     // bottom: 0;
     width: 100%;
-    background-color: #F2F2F2;
+    background-color: #7692FF;
     color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px 0vw;
+    border-top: 1px solid hsl(0, 0%, 90%);
     .footer-table{
         display: flex;
+        align-items: center;
         a{
+            color: white;
             margin: 0px 15px;
-            font-family: sans-serif;
+            
+        }
+        svg{
+            width: 35px;
+            height: 35px;
         }
     }
 }

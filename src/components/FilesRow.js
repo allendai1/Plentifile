@@ -111,7 +111,7 @@ function FilesRow(props){
     setCopied(true)
     setTimeout(()=>{
       setCopied(false)
-    },5000)
+    },3000)
     copyStringToClipboard(`${window.location.hostname}:3000/${props.doc.id}`)
 
   }
