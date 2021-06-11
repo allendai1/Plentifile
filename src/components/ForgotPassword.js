@@ -12,7 +12,7 @@ export default function ForgotPassword() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-
+    console.log("submit")
     try {
       setMessage("")
       setError("")
