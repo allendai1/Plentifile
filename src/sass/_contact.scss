@@ -1,2 +1,14 @@
 
-
+.contact-page{
+    height: 100%;
+    flex-direction: column;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contact-container{
+    width: 50%;
+    h1{
+        font-family: Rubik;
+    }
+}

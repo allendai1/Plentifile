@@ -17,7 +17,6 @@ export default function DefaultPage() {
 	let history = useHistory();
 	const [actualpassword, setpw] = useState();
 	const [fileList, setFileList] = useState([]);
-	const [sorted, setSorted] = useState(true);
 	const [loading, setLoading] = useState(true);
 	const [metadata, setMetadata] = useState();
 	const [alertState, setAlertState] = useState("");
@@ -101,14 +100,7 @@ export default function DefaultPage() {
 		}
 	}
 
-	function butt() {
-		setSorted(!sorted);
-		if (sorted) {
-			setFileList((old) => old.sort((a, b) => (a.name > b.name ? -1 : 1)));
-		} else {
-			setFileList((old) => old.sort((a, b) => (a.name > b.name ? 1 : -1)));
-		}
-	}
+
 
 	return (
 		<>
@@ -135,7 +127,7 @@ export default function DefaultPage() {
 				</div>
 			)}
 			{pwprotected === false && !loading && (
-				<div className="files-page" contentEditable="true">
+				<div className="files-page">
 					<h1>
 						{metadata.data().linkName}{" "}
 						<Button onClick={downloadAll} title="Download all files as zip">
