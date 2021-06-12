@@ -16,7 +16,7 @@ import RestrictedUpload from "./RestrictedUpload";
 function App() {
 	return (
 		<>
-		<div id="App" style={{ position: "relative" }}>
+			<div id="App">
 				<Router>
 					<AuthProvider>
 						<Switch>
@@ -35,14 +35,10 @@ function App() {
 						</Switch>
 					</AuthProvider>
 				</Router>
-			{/* </div> */}
-
-		</div>
-		<Footer />
-
+			</div>
+			<Footer />
 		</>
 	);
 }
 
-
-export { App};
+export { App };
