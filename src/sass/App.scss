@@ -3,10 +3,14 @@
 * {
     font-family: Roboto-mono;
 }
+#App{
+  height: 100vh;
+}
 .App {
-    position: relative;
+    // position: relative;
     min-height: 100vh;
     width: 100%;
+    height: 100%;
   }
   
 
