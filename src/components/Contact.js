@@ -9,6 +9,7 @@ export default function Contact() {
 			<div className="m-auto w-50">
 				<h1>Contact information</h1>
 				<h3>Email : </h3>
+				
 			</div>
 		</>
 	);
