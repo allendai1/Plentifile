@@ -6,9 +6,13 @@ export default function Contact() {
 	return (
 		<>
 			<NavigationBar />
-			<div className="m-auto w-50">
-				<h1>Contact information</h1>
-				<h3>Email : </h3>
+			<div className="contact-page">
+				<div className="contact-container">
+					<h1>Contact information</h1>
+					<h3>Email : allendai1@hotmail.com</h3>
+
+				</div>
+				
 			</div>
 		</>
 	);
