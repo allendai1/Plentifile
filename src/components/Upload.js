@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from "react";
 import "../App.css";
 import firebase from "firebase/app";
-import { Form } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { database, storage } from "../firebase";
 import { uid } from "rand-token";
@@ -32,6 +32,7 @@ export default function Upload() {
 	}
 	async function validToken() {
 		const token = uid(8);
+
 		const valid = await database.links
 			.doc(token)
 			.get()
@@ -54,6 +55,7 @@ export default function Upload() {
 			];
 			setUploadedState(4);
 			const t = await validToken();
+			// const t = "12345678"
 			// console.log(name,desc,pass)
 
 			await Promise.all(
@@ -145,7 +147,14 @@ export default function Upload() {
 		);
 		setTotalFileSize((prev) => prev - x.size);
 	}
-
+	function copyToClipboard(e) {
+		e.preventDefault();
+		// setCopied(true);
+		setTimeout(() => {
+			// setCopied(false);
+		}, 3000);
+		// copyStringToClipboard(`${window.location.hostname}:3000/${props.doc.id}`);
+	}
 	return (
 		<>
 			<ScrollToTop />
@@ -261,16 +270,30 @@ export default function Upload() {
 				)}
 				{uploadedState === 3 && (
 					<div className="card-container">
-						<div className="inner-card-container share">
-							{submitted && (
-								<div className="h-100">
+						{submitted && (
+							<div className="share">
+								<div className="d-flex align-items-center">
 									<a href={`/${token}`}>{`${window.location.host}/${token}`}</a>
-									<QRCode value={`${window.location.host}/${token}`} />
+									<svg
+										className="svg-copy"
+										viewBox="0 0 20 20"
+										onClick={copyToClipboard}
+									>
+										<path d="M17.391,2.406H7.266c-0.232,0-0.422,0.19-0.422,0.422v3.797H3.047c-0.232,0-0.422,0.19-0.422,0.422v10.125c0,0.232,0.19,0.422,0.422,0.422h10.125c0.231,0,0.422-0.189,0.422-0.422v-3.797h3.797c0.232,0,0.422-0.19,0.422-0.422V2.828C17.812,2.596,17.623,2.406,17.391,2.406 M12.749,16.75h-9.28V7.469h3.375v5.484c0,0.231,0.19,0.422,0.422,0.422h5.483V16.75zM16.969,12.531H7.688V3.25h9.281V12.531z"></path>
+									</svg>
 								</div>
-							)}
 
-							<button onClick={uploadMore}>Upload more</button>
-						</div>
+								<QRCode
+									className="m-5"
+									level="H"
+									size="256"
+									value={`${window.location.host}/${token}`}
+								/>
+								<Button size="lg" onClick={uploadMore}>
+									Upload more
+								</Button>
+							</div>
+						)}
 					</div>
 				)}
 				{uploadedState === 4 && (

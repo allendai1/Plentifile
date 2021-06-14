@@ -34,7 +34,7 @@
         justify-content: space-between;
         
         // text-align: center;
-        button{
+        button.delete-all{
             padding: 0 2rem;
             float: right;
             position: relative;
@@ -48,7 +48,7 @@
             }
             &:active::before{
                 animation: delete 1.1s;
-                animation-timing-function: cubic-bezier(1.000, 0.055, 1.000, 0.980);
+                animation-timing-function: linear;
                 content: "";
                 
                 
@@ -305,6 +305,7 @@
   .svg-copy {
     width: 4rem;
     height: 4rem;
+    // background-color: rgb(199, 190, 190);
     &:hover{
         cursor: pointer;
     }

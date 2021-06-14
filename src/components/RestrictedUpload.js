@@ -5,6 +5,7 @@ import {Jumbotron,Button} from 'react-bootstrap'
 import {useHistory} from 'react-router-dom'
 import {database,storage} from '../firebase'
 import {uid} from 'rand-token'
+import { useAuth } from "../contexts/AuthContext";
 
 import ScrollToTop from "./ScrollToTop"
 
@@ -21,6 +22,8 @@ export default function RestrictedUpload(){
         const [loading,setLoading] = useState(false)
         const [uploadedState, setUploadedState] = useState(1)
         const [totalFileSize,setTotalFileSize] = useState(0)
+        const {currentUser} = useAuth()
+        if (currentUser) history.push("/home");
 
 
     
@@ -121,7 +124,7 @@ export default function RestrictedUpload(){
         <Jumbotron style={{padding: "3rem 2rem"}} >
             <h1>Want more features?</h1>
             <p>
-                Sign up to access additional features, such as<br/>- Custom name and descriptions<br/>- Password protected links<br/>- Multiple file uploads
+                Sign up to access additional features, such as<br/>- Custom name and descriptions<br/>- Password protected links<br/>- Multiple file uploads<br/>- Saved links
             </p>
             
             <p>

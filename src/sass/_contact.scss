@@ -1,14 +1,20 @@
 
 .contact-page{
+    top: 350px;
+    position: relative;
     height: 100%;
+    padding: 2rem;
     flex-direction: column;   
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .contact-container{
-    width: 50%;
-    h1{
+    // width: 50%;
+    h3{ 
+        margin-top: 2rem;
         font-family: Rubik;
+        text-align: center;
+        text-decoration: underline;
     }
 }

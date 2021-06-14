@@ -60,6 +60,7 @@
     // border-radius: 0 0 15px 15px;
     &:hover{
         cursor: pointer;
+        background-color: #393941;
 
 
     }
@@ -91,7 +92,27 @@
 
     }
 }
+.share{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 100%;
+    padding: 1rem;
+    border-radius: 5px;
+    div{
+        // border-radius: 5px;
+        background-color: #dadada;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+    a{
+        text-align: center;
+        font-size: 3rem;
+    }
 
+}
 .card-container{
     width: 100%;
     // background-color: white;
@@ -118,26 +139,7 @@
             display: inline-block;
             padding: 1rem 3rem 0 3rem;
         }
-        &.share {
-            font-size: 2.5rem;
-            align-content: center;
-            button{
-                background-color: #23272A;
-                border: 0;
-                grid-column: 1 / 3;
-                color: white;
-            }
-            a{
-                padding-bottom: 2rem;
-            }
-            div{
-                padding: 3rem 0;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                grid-column: 1/3;
-            }
-        }
+        
         
         #selected-files{
             display: flex;
@@ -338,6 +340,9 @@ form[pressed='1'] {
     color: black;
     background-color: white;
     border-radius: 0 0 0 5px;
+    &:hover{
+        background-color: #e7e3e3;
+    }
     
 
 }

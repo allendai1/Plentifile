@@ -4,8 +4,7 @@ import NavigationBar from "./NavigationBar";
 import { database, storage } from "../firebase";
 import FilesRow from "../components/FilesRow";
 import firebase from "firebase/app";
-import {Button} from 'react-bootstrap'
-
+import { Button } from "react-bootstrap";
 
 export default function MyFiles() {
 	const [arr, setArr] = useState([]);
@@ -24,13 +23,11 @@ export default function MyFiles() {
 	const [sizeSort, setSizeSort] = useState("ascending");
 	const [confirm, setConfirm] = useState(false);
 	const [pressed, setPressed] = useState(0);
-  let timer;
-  console.log("render myfiles")
+	let timer;
+	console.log("render myfiles");
 	useEffect(() => {
 		if (loading === true) loadFile();
-    
 	}, []);
-
 
 	async function loadFile() {
 		console.log("Load File");
@@ -44,7 +41,7 @@ export default function MyFiles() {
 
 		toggleLoading(false);
 	}
-  function togglePressed(doc) {
+	function togglePressed(doc) {
 		if (pressed === 1) {
 			setPressed(0);
 		} else if (pressed === 0) {
@@ -52,9 +49,7 @@ export default function MyFiles() {
 		}
 	}
 
-
 	function deleteFile() {
-		
 		console.log("Deleted");
 		selected.forEach(async (fileid) => {
 			await databaseUserLinksRef.doc(fileid).delete();
@@ -76,9 +71,8 @@ export default function MyFiles() {
 		});
 		setArr((prev) => prev.filter((x) => !selected.includes(x.id)));
 		setSelected([]);
-    setConfirm(false)
+		setConfirm(false);
 	}
-
 
 	function sortByDate(e) {
 		e.preventDefault();
@@ -130,28 +124,25 @@ export default function MyFiles() {
 		e.preventDefault();
 		if (selectAllBool === 0) {
 			setSelectAll(1);
-      setPressed(1)
+			setPressed(1);
 			setSelected(
 				arr.map((doc) => {
 					return doc.id;
 				})
 			);
 		} else {
-      setPressed(0)
+			setPressed(0);
 			setSelectAll(0);
 			setSelected([]);
 		}
 	}
-  function mousedown(e){
-    e.preventDefault();
-    timer=setTimeout(()=>{
-      console.log("pretend delete")
-      deleteFile();
-    },1100)
-    
-    
-    
-  }
+	function mousedown(e) {
+		e.preventDefault();
+		timer = setTimeout(() => {
+			console.log("pretend delete");
+			deleteFile();
+		}, 1100);
+	}
 	return (
 		<>
 			<NavigationBar />
@@ -159,25 +150,35 @@ export default function MyFiles() {
 			<div className="files-page">
 				{/* <button onClick={test}>TEST</button> */}
 				<h1>
-          <span>Files</span>
-        {selected.length > 0 && (
+					<span>Files</span>
+					{selected.length > 0 && (
 						<>
-            
-              <Button variant="dark" onMouseDown={mousedown} onMouseUp={()=>{clearTimeout(timer)}}><span>Hold to delete</span></Button>
-              
-							
-              
+							<Button
+								variant="dark"
+								onMouseDown={mousedown}
+								onMouseUp={() => {
+									clearTimeout(timer);
+								}}
+								className="delete-all"
+							>
+								<span>Hold to delete</span>
+							</Button>
 						</>
 					)}
-        </h1>
+				</h1>
 				<div className="files-container">
-					
 					<div className="files-inner-header">
 						<div className="header-select">
 							<div className="checkbox" onClick={selectAll} pressed={pressed}>
-                <svg focusable="false" viewBox="0 0 24 24"><path strokeWidth="3.4"  d="M4.1,12.7 9,17.6 20.3,6.3" fill="none" stroke={selectAllBool ? "white" : "#F6F7F9"}></path></svg>
-
-              </div>
+								<svg focusable="false" viewBox="0 0 24 24">
+									<path
+										strokeWidth="3.4"
+										d="M4.1,12.7 9,17.6 20.3,6.3"
+										fill="none"
+										stroke={selectAllBool ? "white" : "#F6F7F9"}
+									></path>
+								</svg>
+							</div>
 						</div>
 						<div className="header-name" onClick={sortByName}>
 							Name

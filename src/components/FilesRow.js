@@ -42,7 +42,9 @@ function FilesRow(props) {
 				passwordProtected: false,
 				password: 0,
 			});
-		} else {
+			setProtectedState((prev) => !prev);
+			handleClose();
+		} else if(protectedState===false && passwordRef.current.value!=="") {
 			const pw = sha256(passwordRef.current.value).toString();
 			await database.users
 				.doc(currentUser.uid)
@@ -56,9 +58,10 @@ function FilesRow(props) {
 				passwordProtected: true,
 				password: pw,
 			});
+			setProtectedState((prev) => !prev);
+			handleClose();
 		}
-		setProtectedState((prev) => !prev);
-		handleClose();
+		
 	}
 	function handleShow() {
 		setShow(true);
@@ -143,13 +146,16 @@ function FilesRow(props) {
 					</Modal.Header>
 					{protectedState && <Modal.Body>Remove your password</Modal.Body>}
 					{!protectedState && (
-						<Modal.Body>
+						<Modal.Body >
 							<span>Password:</span>
+							
 							<Form.Control
 								type={!passwordVisible ? "password" : "text"}
 								placeholder="Enter a password"
 								ref={passwordRef}
+								style={{margin:"0.75rem 0"}}
 							/>
+							
 							<Form.Check
 								type="checkbox"
 								label="Show password"
@@ -227,16 +233,18 @@ function FilesRow(props) {
 									onClick={togglePasswordProtection}
 									viewBox="-2 -1 28 28"
 								>
-									<path d="M18 10v-4c0-3.313-2.687-6-6-6s-6 2.687-6 6v4h-3v14h18v-14h-3zm-10-4c0-2.206 1.794-4 4-4s4 1.794 4 4v4h-8v-4zm11 16h-14v-10h14v10z" />
+									<path d="M18 10v-4c0-3.313-2.687-6-6-6s-6 2.687-6 6v4h-3v14h18v-14h-3zm-10-4c0-2.206 1.794-4 4-4s4 1.794 4 4v4h-8v-4zm11 16h-14v-10h14v10z"><title>Click to remove password</title></path>
 								</svg>
 							)}
 							{protectedState === false && (
 								<svg
+									
 									className="svg-locked"
 									onClick={togglePasswordProtection}
 									viewBox="-2 -1 28 28"
 								>
-									<path d="M8 10v-4c0-2.206 1.795-4 4-4s4 1.794 4 4v1h2v-1c0-3.313-2.687-6-6-6s-6 2.687-6 6v4h-3v14h18v-14h-13zm11 12h-14v-10h14v10z" />
+
+										<path d="M8 10v-4c0-2.206 1.795-4 4-4s4 1.794 4 4v1h2v-1c0-3.313-2.687-6-6-6s-6 2.687-6 6v4h-3v14h18v-14h-13zm11 12h-14v-10h14v10z"><title>Click to add password</title></path>
 								</svg>
 							)}
 						</div>
