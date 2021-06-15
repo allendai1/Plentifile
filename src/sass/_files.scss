@@ -351,11 +351,22 @@
               
                 text-align: center;
               
-              display: block;
+              display: flex;
               button.delete-all{
                   float: none;
               }
           }
+      }
+      .more-div-left, .more-div-right{
+          display: flex !important;
+          flex-direction: column;
+          word-wrap: break-word;
+          a{
+            white-space: initial;
+            max-width: 20ch;
+
+          }
+            
       }
       .file-row-section{
           display: flex !important;
@@ -372,7 +383,7 @@
           }
       }
       .files-inner-header{
-          grid-template-columns: 0fr 1fr;
+          grid-template-columns: 0.1fr 1fr !important;
         //   grid-template-rows: 1fr 1fr 1fr 1fr;
           flex-direction: column;
         //   display: flex !important;

@@ -269,8 +269,8 @@ export default function LandingPage(props) {
 
 								<QRCode
 									className="m-5"
-									level="H"
-									size="256"
+					
+									
 									value={`${window.location.host}/12345678`}
 								/>
 								<Button size="lg" >
