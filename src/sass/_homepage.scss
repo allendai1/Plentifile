@@ -1,6 +1,6 @@
 .home-page{
     background-color: #f5f5f5;
-    height: 100vh;
+    min-height: 100vh;
     padding: 15px 5%;
     font-family: Arial;
     display: grid;
@@ -79,4 +79,26 @@
         font-size: 1.4rem;
         padding-left: 1rem;
     }
+}
+
+@media (max-width:576px) {
+    .home-page{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        max-width: 100vw;
+        h1{
+            text-align: center;
+        }
+    }
+    #App{
+        margin-left: 0 !important;
+        width: 100%;
+    }
+    .nav-panel{
+        gap: 1rem;
+    }
+    
+    
 }

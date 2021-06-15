@@ -29,6 +29,8 @@ export default function Upload() {
 		setInputKey((prev) => prev + 1);
 		setFileList([]);
 		setTotalFileSize(0);
+		console.log(window.innerWidth);
+		console.log(typeof window.innerWidth);
 	}
 	async function validToken() {
 		const token = uid(8);
@@ -207,7 +209,7 @@ export default function Upload() {
 							</label>
 						</form>
 
-						<button id="clear-button" onClick={resetFileList}>
+						<button className="clear-button" onClick={resetFileList}>
 							Clear
 						</button>
 
@@ -272,7 +274,7 @@ export default function Upload() {
 					<div className="card-container">
 						{submitted && (
 							<div className="share">
-								<div className="d-flex align-items-center">
+								<div className="share-link">
 									<a href={`/${token}`}>{`${window.location.host}/${token}`}</a>
 									<svg
 										className="svg-copy"
@@ -286,7 +288,7 @@ export default function Upload() {
 								<QRCode
 									className="m-5"
 									level="H"
-									size="256"
+									size={window.innerWidth<=1920 ? 258 : window.innerWidth*0.133}
 									value={`${window.location.host}/${token}`}
 								/>
 								<Button size="lg" onClick={uploadMore}>
