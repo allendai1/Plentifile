@@ -162,7 +162,7 @@ export default function Upload() {
 		// setCopied(true);
 		console.log('pressed')
 		
-		copyStringToClipboard(`${window.location.hostname}:3000/${token}`);
+		copyStringToClipboard(`${window.location.hostname}/${token}`);
 	}
 	return (
 		<>
