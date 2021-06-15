@@ -56,8 +56,7 @@ export default function Upload() {
 			];
 			setUploadedState(4);
 			const t = await validToken();
-			// const t = "12345678"
-			// console.log(name,desc,pass)
+			
 
 			await Promise.all(
 				Array.from(fileList).map(async (x) => {

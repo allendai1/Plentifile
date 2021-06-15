@@ -22,6 +22,7 @@ export default function DefaultPage() {
 	const [alertState, setAlertState] = useState("");
 
 	const loadFile = useCallback(async () => {
+		console.log(token)
 		await database.links
 			.doc(token)
 			.get()
@@ -45,9 +46,9 @@ export default function DefaultPage() {
 			});
 		await storage
 			.ref()
-			.child(window.location.pathname + "/")
-			.list()
+			.child(window.location.pathname + "/").list()
 			.then((x) => {
+				console.log(x)
 				x.items.forEach(async (file, index) => {
 					const fileObj = {
 						fileUrl: await file.getDownloadURL().then((url) => {
