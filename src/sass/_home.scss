@@ -359,15 +359,22 @@ background-size: cover;
     
 }
 
-@media (max-width:576px) {
+@media (max-width:768px) {
+    #introduction{
+        height: fit-content;
+    }
     .closeMargin{
         margin: 0 !important;
     }
     .footer{
         height: auto;
+        justify-content: flex-start;
+        align-items: flex-start;
         .footer-table{
             flex-direction: column;
-            font-size: 1.5rem;
+            align-items: flex-start;
+            font-size: 1.1rem;
+            
         }
     }
     #getStarted,#left-title{
@@ -376,16 +383,45 @@ background-size: cover;
         align-items: center;
         padding: 0;
     }
+    #left-title{
+        margin-top: 2rem;
+        button{
+            padding: 1rem;
+        }
+    }
+    #right-container{
+        padding: 0 1rem;
+    }
     .container1{
         grid-template-columns: auto;
         padding: 0;
+        height: auto;
+    }
+    .home-login-card{
+        margin-top: 2rem;
+
     }
     .description-header{
+        margin-top: 2rem;
         display: flex;
         flex-direction: column;
+        gap: 0;
+        text-align: center;
+        align-items: center;
+        &.third{
+            flex-direction: column-reverse !important;
+        }
+        .upload-example-label{
+            font-size: 6vw;
+
+        }
+        svg{
+            width: 6vw;
+        }
     }
     .home-login-card{
         max-width: 100%;
+        margin-bottom: 2rem;
     }
     #second-header{
         padding: 0;
@@ -407,11 +443,14 @@ background-size: cover;
     }
     .upload-header{
         display: inline;
+        font-size: 1rem;
     }
     .start-uploading-button{
         height: 100% !important; 
         width: 100% !important; 
-        font-size: 1.5rem;
+        &:hover{
+            font-size: inherit !important;
+        }
     }
     .upload-form-card{
         display: flex;

@@ -264,9 +264,29 @@
     stroke-width: 1;
   }
 
-  @media (max-width:576px) {
+  @media (max-width:768px) {
     .sidenav{
       display: none;
+      display: flex;
+      height: 50px;
+      width: 100vw;
+      flex-direction: row;
+      position: relative;
+     
+      .h-flex{
+        flex-direction: row;
+        
+        &.divider{
+          display: none;
+        }
+        &.toggleClose{
+          display: none;
+        }
+        
+        
+        
+      }
+      
     }
   }
 

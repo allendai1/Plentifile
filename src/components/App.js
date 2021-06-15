@@ -30,7 +30,7 @@ function App() {
 							<PrivateRoute path="/home" component={Home} />
 							<PrivateRoute path="/files" component={MyFiles} />
 							<PrivateRoute path="/settings" component={Settings} />
-							<PrivateRoute path="/contact" component={Contact} />
+							<Route path="/contact" component={Contact} />
 							<Route path="/" component={DefaultPage} />
 						</Switch>
 					</AuthProvider>

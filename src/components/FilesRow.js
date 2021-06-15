@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import QRCode from "qrcode.react";
-import { Modal, Button, Form, Overlay, Tooltip, Alert } from "react-bootstrap";
-import { database, storage, firestore } from "../firebase";
+import { Modal, Button, Form, } from "react-bootstrap";
+import { database,} from "../firebase";
 import { useAuth } from "../contexts/AuthContext";
 import sha256 from "crypto-js/sha256";
 
@@ -11,7 +11,6 @@ function FilesRow(props) {
 
 	const [pressed, setPressed] = useState(0);
 	const [more, setMore] = useState(0);
-	const [numFiles, setNumFiles] = useState(props.doc.data().numFiles);
 	const [protectedState, setProtectedState] = useState(
 		props.doc.data().passwordProtected
 	);
@@ -19,7 +18,6 @@ function FilesRow(props) {
 	const [passwordVisible, setPasswordVisible] = useState(false);
 	const [show, setShow] = useState(false);
 	const { currentUser } = useAuth();
-	console.log("render");
 
   
 
@@ -69,7 +67,6 @@ function FilesRow(props) {
 
 	useEffect(() => {
 		setPressed(props.selectAllBool);
-    console.log("effect")
 	}, [props.selectAllBool]);
 
 	function togglePasswordProtection(e) {
@@ -218,7 +215,7 @@ function FilesRow(props) {
 					<div className="more-div-left">
 						<div>
 							<h2>Files</h2>
-							{numFiles}
+							{props.doc.data().numFiles}
 						</div>
 						<div>
 							<h2>Views</h2>

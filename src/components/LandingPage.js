@@ -4,13 +4,10 @@ import Signup from "./Signup";
 import { OverlayTrigger, Tooltip,Form,Button,Overlay } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { useHistory, } from "react-router-dom";
-import sample from "../static/sample.mp4";
-import sample2 from "../static/sample2.mp4";
-import upload_png from "../static/upload.png";
+
 import Login from "./Login";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Typed from 'typed.js';
 import QRCode from "qrcode.react";
 
 export default function LandingPage(props) {
@@ -22,10 +19,6 @@ export default function LandingPage(props) {
 	const el2 = React.useRef(null);
 	const [show, setShow] = useState(false);
 	const target = useRef(null);
-	
-
-	const [passwordVisible, setPasswordVisible] = useState(false);
-
 
 	if (currentUser) history.push("/home");
 
@@ -208,7 +201,7 @@ export default function LandingPage(props) {
 							<div>
 								<span>Password:</span>
 								<Form.Control
-									type={!passwordVisible ? "password" : "text"}
+									
 									placeholder="Optional"
 									disabled
 								/>
@@ -259,7 +252,7 @@ export default function LandingPage(props) {
 										onClick={() => {
 											setShow(true)
 											setTimeout(()=>{
-												setShow(false);
+											setShow(false);
 											},3000)
 										}}
 									>

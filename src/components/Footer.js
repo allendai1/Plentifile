@@ -1,6 +1,5 @@
-import React, {useEffect, useRef,useState} from 'react'
+import React from 'react'
 import '../App.css';
-import githubIcon from "../static/GitHub-Mark.svg"
 
 export default function Footer(props) {
         return(
@@ -10,6 +9,8 @@ export default function Footer(props) {
                 <a href="/upload">Upload </a>
                 <a href="/contact">Contact</a>
                 <a href="/login">Sign in / Sign up</a>
+                <a href="/files">My files</a>
+
                 <a href="https://github.com/allendai1/Plentifile" >
 
                 <svg  viewBox="0 0 256 250"  preserveAspectRatio="xMidYMid">

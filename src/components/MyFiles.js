@@ -10,44 +10,32 @@ export default function MyFiles() {
 	const [arr, setArr] = useState([]);
 	const { currentUser } = useAuth();
 	const [loading, toggleLoading] = useState(true);
-	const [dataFetched, setDataFetched] = useState(false);
 	const databaseUserLinksRef = database.users
 		.doc(currentUser.uid)
 		.collection("links");
 	const [selected, setSelected] = useState([]);
 	const [selectAllBool, setSelectAll] = useState(0);
 	const [arrowOrientation, setArrow] = useState([0, 0, 0]); //name,date,size
-	const [update, setUpdate] = useState(0);
 	const [dateSort, setDateSort] = useState("descending");
 	const [nameSort, setNameSort] = useState("ascending");
 	const [sizeSort, setSizeSort] = useState("ascending");
-	const [confirm, setConfirm] = useState(false);
 	const [pressed, setPressed] = useState(0);
 	let timer;
-	console.log("render myfiles");
 	useEffect(() => {
 		if (loading === true) loadFile();
 	}, []);
 
 	async function loadFile() {
-		console.log("Load File");
 		await databaseUserLinksRef.get().then((coll) => {
 			const sorted = coll.docs.sort(
 				(a, b) => b.data().preciseDate.toDate() - a.data().preciseDate.toDate()
 			);
-			setDataFetched(true);
 			setArr([...sorted]);
 		});
 
 		toggleLoading(false);
 	}
-	function togglePressed(doc) {
-		if (pressed === 1) {
-			setPressed(0);
-		} else if (pressed === 0) {
-			setPressed(1);
-		}
-	}
+	
 
 	function deleteFile() {
 		console.log("Deleted");
@@ -71,7 +59,6 @@ export default function MyFiles() {
 		});
 		setArr((prev) => prev.filter((x) => !selected.includes(x.id)));
 		setSelected([]);
-		setConfirm(false);
 	}
 
 	function sortByDate(e) {
@@ -153,16 +140,31 @@ export default function MyFiles() {
 					<span>Files</span>
 					{selected.length > 0 && (
 						<>
+						{window.innerWidth>=1920 && (
 							<Button
-								variant="dark"
-								onMouseDown={mousedown}
-								onMouseUp={() => {
-									clearTimeout(timer);
-								}}
-								className="delete-all"
-							>
-								<span>Hold to delete</span>
+							variant="dark"
+							onMouseDown={mousedown}
+							onMouseUp={() => {
+								clearTimeout(timer);
+							}}
+							className="delete-all"
+						>
+							<span>Hold to delete</span>
 							</Button>
+						)
+						}
+						{window.innerWidth<1920 && (
+							<Button
+							variant="dark"
+							onClick={deleteFile}
+							
+						>
+							<span>Delete</span>
+							</Button>
+						)
+
+						}
+							
 						</>
 					)}
 				</h1>
@@ -222,7 +224,7 @@ export default function MyFiles() {
 						</div>
 					</div>
 					<div style={{ minHeight: "80vh" }}>
-						{dataFetched &&
+						{arr.length>0 &&
 							[...arr].map((doc, index) => {
 								return (
 									<FilesRow

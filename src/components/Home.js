@@ -40,7 +40,6 @@ export default function Home() {
                 console.log("Could not fetch total views")
 
             })
-		console.log("i fire once");
 	}, [currentUser.uid]);
 
 	function bytesToSize(bytes, decimals = 2) {
@@ -83,7 +82,6 @@ export default function Home() {
 				</div>
 				<div className="nav-panel-big-card">
 					<div className="nav-panel-upload-card" id="upload-card">
-						{/* <div className="nav-panel-item-header">Upload</div> */}
 						<Upload />
 					</div>
 				</div>
