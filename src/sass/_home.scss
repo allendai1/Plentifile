@@ -160,7 +160,7 @@
     font-size: 2rem;
     background-color: #1F1F23;
     // background-color: #5979fa;
-    padding: 4rem 4rem;
+    padding: 3rem 3rem;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -360,6 +360,10 @@ background-size: cover;
 }
 
 @media (max-width:768px) {
+    .form-example{
+        padding: 2rem;
+        font-size: 1.1rem;
+    }
     #introduction{
         height: fit-content;
     }
