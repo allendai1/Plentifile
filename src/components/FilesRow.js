@@ -107,7 +107,7 @@ function FilesRow(props) {
 		setTimeout(() => {
 			setCopied(false);
 		}, 3000);
-		copyStringToClipboard(`${window.location.hostname}:3000/${props.doc.id}`);
+		copyStringToClipboard(`${window.location.hostname}/${props.doc.id}`);
 	}
 	function copyStringToClipboard(str) {
 		let el = document.createElement("textarea");
